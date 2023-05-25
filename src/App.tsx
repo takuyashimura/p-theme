@@ -82,7 +82,6 @@ function App() {
             <PopoverContent>
               <PopoverArrow />
               <form onSubmit={clickButtton}>
-                <PopoverHeader>Header</PopoverHeader>
                 <PopoverBody>
                   <Text>プロジェクト言語</Text>
                   <Input
@@ -99,13 +98,16 @@ function App() {
                   <Text>最高issue数</Text>
                   <Input />
                 </PopoverBody>
-                <PopoverFooter>
+                <PopoverFooter
+                  display={'flex'}
+                  justifyContent={'space-between'}
+                >
                   {' '}
-                  <Button
-                    type="submit"
-                    //  onClick={popoverClose}
-                  >
-                    Cancel
+                  <Button type="submit" onClick={popoverClose}>
+                    cancel
+                  </Button>
+                  <Button type="submit" onClick={popoverClose}>
+                    決定
                   </Button>
                 </PopoverFooter>
               </form>
