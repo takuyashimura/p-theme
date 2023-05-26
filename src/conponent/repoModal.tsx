@@ -22,7 +22,6 @@ type Props = {
 
 export const RepoModal: VFC<Props> = memo((props) => {
   const { isOpen, onClose, repoData } = props;
-  console.log('repoData', repoData[0]);
 
   const toGitHub = () => {
     window.open(repoData[0].clone_url, '_blank');

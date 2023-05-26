@@ -11,7 +11,7 @@ export const SearchResult: VFC<Props> = memo((props) => {
       {' '}
       {gitHubData ? (
         gitHubData.length > 0 ? (
-          <Flex flexWrap={'wrap'}>
+          <Flex flexWrap={'wrap'} mt={'0px'}>
             {gitHubData.map((data: any) => (
               <Box p={'10px'} width={'50%'} key={data.id}>
                 <Card
@@ -24,7 +24,13 @@ export const SearchResult: VFC<Props> = memo((props) => {
                   }}
                 >
                   <CardBody alignContent={'left'}>
-                    <Text>{data.full_name}</Text>
+                    <Text
+                      width={'100%'}
+                      whiteSpace={'nowrap'}
+                      overflow={'hidden'}
+                    >
+                      {data.full_name}
+                    </Text>
                   </CardBody>
                 </Card>
               </Box>

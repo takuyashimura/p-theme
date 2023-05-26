@@ -22,10 +22,12 @@ export const Method = () => {
     undefined
   );
   const [repoData, setRepoData] = useState<GitHubData[] | undefined>(undefined);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const textChange = (e: any) => {
     setInputValue(e.target.value);
   };
+
   const downEnter = (e: any) => {
     if (inputValue === '') {
       return;
@@ -53,6 +55,7 @@ export const Method = () => {
         `https://api.github.com/search/repositories?q=${inputValue}+in:name&sort=stars`
       )
       .then((res) => {
+        console.log('rex', res);
         setGitHubData(res.data.items);
         setLoading(false);
       })
@@ -67,18 +70,6 @@ export const Method = () => {
     onOpen();
   };
 
-  // const clickButtton = (e: React.FormEventHandler<HTMLFormElement>) => {
-  //   console.log('aaaa', e);
-  // };
-  const clickButtton = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('aaaa', e);
-  };
-
-  const filterTextChange = (e: any) => {
-    console.log('フィルター', e.target.value);
-  };
-
   return {
     loading,
     gitHubData,
@@ -90,7 +81,5 @@ export const Method = () => {
     repoData,
     isOpen,
     onClose,
-    clickButtton,
-    filterTextChange,
   };
 };
